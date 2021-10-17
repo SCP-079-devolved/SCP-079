@@ -30,3 +30,4 @@ The bot's code is custom code with command ideas based off of TuneCode's bot SCP
 - Modmail
 - customizable through an attached webpage to the bot
 - Music Functionality (halted due to the discord music bot takedowns)
+
