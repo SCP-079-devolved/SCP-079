@@ -3,3 +3,5 @@
 *.breakpoints
 *.cfg.cpython-38.pyc
 *__pycache__/
+*index.html
+*style.css
