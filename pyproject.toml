@@ -2,7 +2,7 @@
 name = "SCP-079"
 version = "0.1.0"
 description = "SCP-079 Discord Bot"
-authors = ["Apraxed Name <you@example.com>"]
+authors = ["Apraxed <discord.zbotdyno.all@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"

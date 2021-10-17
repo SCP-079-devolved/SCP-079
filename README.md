@@ -1,4 +1,4 @@
-# SCP-079
+# [SCP-079](https://discord.gg/xDJQR58vgf)
 
 SCP-079 is a fully customizable bot created by [Apraxed](https://github.com/Apraxed) and [Carnoval15](https://github.com/Carnoval15), the bot is based off of SCP-079 created by [TuneCode](https://discord.gg/gQxnsdqScw) with the owner's consent to use the name and icon, all material in this bot is copyrighted under a `BSD 3-Clause License` listed under the name "Apraxed" for the owner of this bot, the website is under a `CreativeCommons Attribution-NonCommercial-NoDerivatives 4.0 International` license.
 
@@ -30,6 +30,3 @@ The bot's code is custom code with command ideas based off of TuneCode's bot SCP
 - Modmail
 - customizable through an attached webpage to the bot
 - Music Functionality (halted due to the discord music bot takedowns)
-- Support discord server
-
-

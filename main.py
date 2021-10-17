@@ -8,6 +8,9 @@ discord = disnake
 scp079=commands.Bot(command_prefix=general.prefix, descripion = "Luke did the dumb and yeeted the bot, now I'm here!", test_guilds=[816430534757580830], help_command=None)
 client = scp079
 
+@scp079.event
+async def on_ready():
+    print(client.user.name,"is online")
 
 @client.slash_command()
 async def ping(ctx):
