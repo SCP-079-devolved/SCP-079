@@ -6,19 +6,20 @@ Now on to the bot itself
 
 ## Code:
 The bot's code is custom code with command ideas based off of TuneCode's bot SCP-079 but released freely and under the licenses listed above,
-
+     
 ### Current commands are:
 
 - Ping (latency)
 - pp_size
 - ban
 - kick
+- Meme
 
 ### Commands underway are:
 
 - Mute
 - Warn
-- Meme
+
 - Luke (creator of original bot's embarresing picture)
 - Sneaky (creator's friend embarresing picture)
 - Sniper (another of the creator's friend embarresing picture)
