@@ -1,0 +1,16 @@
+Thanks to:
+DOOMENTIO for help with images
+Carnoval for creating some commands
+aviation8816 for teaching me how to make bots
+Kuxing for a few images
+Nekumos for gathering lost images
+Illunious for telling me to make the bot
+PalisadeWall for just being cool
+Swepty for making my job easier
+tEMMIE for helping to moderate the discord server
+Aaron (Yīnhuòdéfú) for coming up with a command
+SniperWolfey for helping out with a few things
+pointsr for a few commands
+Rappitz for the origial discord.py library
+EQUENOS for the dpy fork
+Bill wurtz for the music I listened to through this
