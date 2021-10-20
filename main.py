@@ -28,11 +28,11 @@ async def ping(ctx):
 @client.slash_command()
 async def pp_size(ctx):
     embed = discord.Embed(title = f"{ctx.author} your pp size is...", description = (f"{random.randint(1, 500)} inches"), color = 0x5867f2)
-    await ctx.send(embed = embed)
+    await ctx.response.send_message(embed = embed)
 
 @client.slash_command()
 @commands.has_any_role('Dev', 'Head Mod', 'Mod')
-async def ban(ctx, member: discord.Member, reason = None):
+async def ban(ctx, member: discord.Member,* ,reason = None):
       if reason == None:
            reason = messages.ban_message
       author = ctx.author
@@ -43,7 +43,7 @@ async def ban(ctx, member: discord.Member, reason = None):
 
 @client.slash_command()
 @commands.has_any_role('Dev', 'Head Mod', 'Mod')
-async def kick(ctx, member: discord.Member, reason = None):
+async def kick(ctx, member: discord.Member,* ,reason = None):
     if reason == None:
       reason = messages.kick_message
     author = ctx.author
