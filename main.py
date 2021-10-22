@@ -1,5 +1,4 @@
 import disnake, os, random, aiohttp, json
-import asyncio
 from disnake.ext import commands
 from config.cfg import general, messages
 from server import runserver
@@ -12,59 +11,14 @@ scp079=commands.Bot(command_prefix=general.prefix, descripion = "Luke did the du
 client = scp079
 
 @scp079.event
-async def on_message(message):
-    if message.guild: # ensure the channel is a DM
-        return
-
-    if message.author == client.user:
-        return
-
-    if message.author.id in sent_users: # Ensure the intial message hasn't been sent before
-        return
-
-    modmail_channel = client.get_channel(900929604947152947)
-
-    embed = discord.Embed(color=0x5867fe)
-    embed.set_author(name=f"SCP-079 modmail", icon_url="https://cdn.discordapp.com/icons/690937143522099220/34fbd058360c3d4696848592ff1c5191.webp?size=1024")
-    embed.add_field(name='Report a member:', value=f"React with 1️⃣ if you want to report a member.")
-    embed.add_field(name='Report a Staff Member:', value=f"React with 2️⃣ if you want to report a Staff Member.")
-    embed.add_field(name='Warn Appeal:', value=f"React with 3️⃣ if you would like to appeal a warning.")
-    embed.add_field(name='Question:', value=f"React with 4️⃣ if you have a question about our moderation system or the server rules.")
-    embed.set_footer(text="SCP-079 | Modmail")
-    msg = await message.author.send(embed=embed)
-    await msg.add_reaction("1️⃣")
-    await msg.add_reaction("2️⃣")
-    await msg.add_reaction("3️⃣")
-    await msg.add_reaction("4️⃣")
-
-    sent_users.append(message.author.id) # add this user to the list of sent users
-
-    try:
-        def check(reaction, user):
-            return user == message.author and str(reaction.emoji) in ["1️⃣", "2️⃣", "3️⃣", "4️⃣"]
-
-        reaction, user = await client.wait_for("reaction_add", timeout=60, check=check)
-
-        if str(reaction.emoji) == "1️⃣":
-            embed = discord.Embed(color=0x00FFFF)
-            embed.set_author(name=f"SCP-079 Modmail System", icon_url="https://cdn.discordapp.com/icons/690937143522099220/34fbd058360c3d4696848592ff1c5191.webp?size=1024")
-            embed.add_field(name='How to Report:', value="Send the ID of the person you are reporting and attach add a screen shot of them breaking a rule (can be ToS or a server rule).")
-            embed.set_footer(text="SCP-079 | Report a member ")
-            await message.author.send(embed=embed)
-
-            message = await client.wait_for("message", timeout=60, check=lambda m: m.channel == message.channel and m.author == message.author)
-            embed = discord.Embed(title=f"{message.content}", color=0x00FFFF)
-            await modmail_channel.send(embed=embed)
-
-
-    except asyncio.TimeoutError:
-        await message.delete()
-    await client.process_message(message)
-
-@scp079.event
 async def on_ready():
     print(client.user.name,"is online")
     await scp079.change_presence(status=discord.Status.idle, activity = discord.Game(name = "Febuary 2022"))
+
+@client.slash_command()
+async def pp_width(ctx):
+    embed = discord.Embed(title = f"{ctx.author} your pp width is...", description = (f"{random.randint(1, 10)} inches"), color = 0x5867f2)
+    await ctx.response.send_message(embed = embed)
 
 @client.slash_command()
 async def comedy(ctx):
