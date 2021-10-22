@@ -6,6 +6,10 @@ Now on to the bot itself
 
 ## Code:
 The bot's code is custom code with command ideas based off of TuneCode's bot SCP-079 but released freely and under the licenses listed above,
+
+To install the depenencies, run this command in a shell window
+
+`$ pip install -r requirements.txt`
      
 ### Current commands are:
 
