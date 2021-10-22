@@ -25,3 +25,4 @@ class banksystem():
     name = Default
     # Emoji embed code for the emoji
     icon = "<:Sweptbux:900246927847866428>"
+
