@@ -14,25 +14,35 @@ To install the depenencies, run this command in a shell window
 ### Current commands are:
 
 - Ping (latency)
+
 - pp_size
+
 - ban
+
 - kick
+
 - Meme
 
 ### Commands underway are:
 
 - Mute
+
 - Warn
 
 - Luke (creator of original bot's embarresing picture)
+
 - Sneaky (creator's friend embarresing picture)
+
 - Sniper (another of the creator's friend embarresing picture)
+
 - December (same as above description)
+
 - Report
 
 ### Fetures planned:
 
 - Modmail
-- customizable through an attached webpage to the bot
-- Music Functionality (halted due to the discord music bot takedowns)
 
+- customizable through an attached webpage to the bot
+
+- Music Functionality (halted due to the discord music bot takedowns)
