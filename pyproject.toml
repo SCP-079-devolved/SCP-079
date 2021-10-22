@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "SCP-079"
-version = "0.1.0"
+version = "0.1.2"
 description = "SCP-079 Discord Bot"
 authors = ["Apraxed <discord.zbotdyno.all@gmail.com>"]
 

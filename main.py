@@ -7,7 +7,7 @@ runserver()
 sent_users = []
 discord = disnake
 
-scp079=commands.Bot(command_prefix=general.prefix, descripion = "Luke did the dumb and yeeted the bot, now I'm here!", test_guilds=[899374265512624138], help_command=None)
+scp079=commands.Bot(command_prefix=commands.when_mentioned_or(general.prefix), descripion = "Luke did the dumb and yeeted the bot, now I'm here!", test_guilds=[899374265512624138], help_command=None)
 client = scp079
 
 @scp079.event
@@ -93,21 +93,7 @@ class Confirm(disnake.ui.View):
         self.value = False
         self.stop()
 
-# @client.slash_command()
-# @client.command()
-# async def shutdown(ctx: commands.Context):
-#    #"""Shuts the bot down (use this only on critical times)"""
-   # We create the view and assign it to a variable so we can wait for it later.
-#    view = Confirm()
-#    await ctx.send('You want to shut me down? really?', view=view)
-   # Wait for the View to stop listening for input...
-#    await view.wait()
-#    if view.value is None:
-#        print('hm')
-#    elif view.value:
-#        print('Shut down happened')
-#    else:
-#        print('Shut down canceled')
+
 
 @client.slash_command()
 async def bug_report(ctx, title, *, description):
