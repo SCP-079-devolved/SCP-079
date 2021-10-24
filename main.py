@@ -4,10 +4,9 @@ from config.cfg import general, messages
 from server import runserver
 
 runserver()
-sent_users = []
 discord = disnake
 
-scp079=commands.Bot(command_prefix=commands.when_mentioned_or(general.prefix), descripion = "Luke did the dumb and yeeted the bot, now I'm here!", test_guilds=[899374265512624138], help_command=None)
+scp079=commands.Bot(command_prefix=commands.when_mentioned_or(general.prefix), descripion = "Luke did the dumb and yeeted the bot, now I'm here!", test_guilds=[899374265512624138], help_command=None, intents=discord.Intents.all(), case_insensitive=True)
 client = scp079
 
 @scp079.event
@@ -17,7 +16,10 @@ async def on_ready():
 
 @client.slash_command()
 async def pp_width(ctx):
-    embed = discord.Embed(title = f"{ctx.author} your pp width is...", description = (f"{random.randint(1, 10)} inches"), color = 0x5867f2)
+    if ctx.author.id == 756147569880727627:
+        embed = discord.Embed(title = f"{ctx.author} your pp width is...", description = (f"1 inch u noob"), color = 0x5867f2)
+    else:    
+        embed = discord.Embed(title = f"{ctx.author} your pp width is...", description = (f"{random.randint(1, 10)} inches"), color = 0x5867f2)
     await ctx.response.send_message(embed = embed)
 
 @client.slash_command()
@@ -32,25 +34,34 @@ async def ping(ctx):
 
 @client.slash_command()
 async def pp_size(ctx):
-    embed = discord.Embed(title = f"{ctx.author} your pp size is...", description = (f"{random.randint(1, 500)} inches"), color = 0x5867f2)
+    if ctx.author.id == 756147569880727627:
+        embed = discord.Embed(title = f"{ctx.author} your pp size is...", description = (f"{random.randint(1,8)} inch u noob"), color = 0x5867f2)
+    elif ctx.author.id == 441032877992574986:
+        embed = discord.Embed(title = f"{ctx.author} your pp size is...", description = (f"{random.randint(400,500)} inch"), color = 0x5867f2)
+    else:
+        embed = discord.Embed(title = f"{ctx.author} your pp size is...", description = (f"{random.randint(1, 500)} inches"), color = 0x5867f2)
     await ctx.response.send_message(embed = embed)
 
 @client.slash_command()
 @commands.has_any_role('Dev', 'Head Mod', 'Mod')
 async def ban(ctx, member: discord.Member,* ,reason = None):
-      if reason == None:
+    if member == ctx.author:
+        ctx.respoonse.send_message('no banning yourself')    
+    else:
+        if reason == None:
            reason = messages.ban_message
-      author = ctx.author
-      authorid = ctx.author.id
-      await member.send(f'You have been banned from {ctx.guild.name} for {reason} by {author}')
-      await ctx.guild.ban(member, reason = reason)
-      await ctx.channel.send(f'{member} has been banned for {reason} by <@{authorid}> ')
+        author = ctx.author
+        authorid = ctx.author.id
+        await member.send(f'You have been banned from {ctx.guild.name} for {reason} by {author}')
+        await ctx.guild.ban(member, reason = reason)
+        await ctx.channel.send(f'{member} has been banned for {reason} by <@{authorid}> ')
 
 @client.slash_command()
 @commands.has_any_role('Dev', 'Head Mod', 'Mod')
 async def kick(ctx, member: discord.Member,* ,reason = None):
     if member == ctx.author:
-        await ctx.response.send_message('no banning yourself noob')
+        await ctx.response.send_message('no kicking yourself noob')
+        pass
     else:
         if reason == None:
             reason = messages.kick_message
@@ -101,5 +112,5 @@ async def bug_report(ctx, title, *, description):
   print(f'A bug report from {ctx.author}:\n Title:\n {title} \n Description: \n {description}\n ')
   await ctx.response.send_message(f'Bug has been reported! Thanks 😉')
 
-token = (os.getenv('Token'))
+token = general.token
 client.run(token)
