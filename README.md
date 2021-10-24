@@ -45,4 +45,14 @@ To install the depenencies, run this command in a shell window
 
 - customizable through an attached webpage to the bot
 
-- Music Functionality (halted due to the discord music bot takedowns)
+- automod
+
+    - setup
+
+    - auto message delete
+
+    - auto mute
+    
+    - anti-raid
+
+- currency system
