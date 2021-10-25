@@ -7,6 +7,7 @@ class config():
     T=t
 
 class general():
+    MOTD = 'Febuary 2022 | We support everyone!'
     token=os.getenv("Token")
     bot_icon_emoji = "<:079:900247468845977610>"
     # Is the ban appealable? T or F
