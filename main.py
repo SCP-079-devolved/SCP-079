@@ -12,7 +12,7 @@ client = scp079
 @scp079.event
 async def on_ready():
     print(client.user.name,"is online")
-    await scp079.change_presence(status=discord.Status.idle, activity = discord.Game(name = "Febuary 2022"))
+    await scp079.change_presence(status=discord.Status.idle, activity = discord.Game(name = general.MOTD))
 
 @client.slash_command()
 async def pp_width(ctx):
