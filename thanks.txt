@@ -1,6 +1,7 @@
 Thanks to:
 DOOMENTIO for help with images
 Carnoval for creating some commands
+Albie368 for checking the code out
 aviation8816 for teaching me how to make bots
 Kuxing for a few images
 Nekumos for gathering lost images
