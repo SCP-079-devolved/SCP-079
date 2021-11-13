@@ -24,6 +24,40 @@ async def pp_width(ctx):
     await ctx.response.send_message(embed = embed)
     print(f'command pp_width run in {ctx.guild}')
 
+@client.slash_command()
+async def rps(ctx, a):
+        a=a.lower()
+        RPC=['rock','paper','scissors']
+        b= RPC[random.randrange(0,2)]
+        if a in RPC:
+            if a==b:
+                embed = discord.Embed(title = 'RPS results', description = f'{ctx.author.mention}: {a}\nMe: {b}', color = 0x808080)
+                embed.set_footer (text = f'Loss!')
+                await ctx.send (embed = embed)
+            elif a=='rock' and b=='scissors':
+                embed = discord.Embed(title = 'RPS results', description = f'{ctx.author.mention}: {a}\nMe: {b}', color = 0xFFDF00)
+                await ctx.send (embed = embed)
+            elif a=='scissors' and b=='rock':
+                embed = discord.Embed(title = 'RPS results', description = f'{ctx.author.mention}: {a}\nMe: {b}')
+                embed.set_footer (text = f'Loss!')
+                await ctx.send (embed = embed)
+            elif a=='paper' and b=='rock':
+                embed = discord.Embed(title = 'RPS results', description = f'{ctx.author.mention}: {a}\nMe: {b}', color = 0xFFDF00)
+                await ctx.send (embed = embed)
+            elif a=='rock' and b=="paper":
+                embed = discord.Embed(title = 'RPS results', description = f'{ctx.author.mention}: {a}\nMe: {b}')
+                embed.set_footer (text = f'Loss!')
+                await ctx.send (embed = embed)
+            elif a=='scissors' and b=="paper":
+                embed = discord.Embed(title = 'RPS results', description = f'{ctx.author.mention}: {a}\nMe: {b}', color = 0xFFDF00)
+                await ctx.send (embed = embed)
+            elif a=="paper" and b=="scissors":
+                embed = discord.Embed(title = 'RPS results', description = f'{ctx.author.mention}: {a}\nMe: {b}')
+                embed.set_footer (text = f'Loss!')
+                await ctx.send (embed = embed)
+            else:
+                await ctx.send ("That's not a choice")
+
 @client.command()
 async def comedy(ctx):
     '''Some comedy pic'''
@@ -37,6 +71,7 @@ async def ping(ctx):
     ping = int(round(client.latency, 3) * 1000)
     e=discord.Embed(title="ping", description=(f"Pong\n\nPing={ping}ms."))
     await ctx.response.send_message(embed=e)
+    print(f'command ping run in {ctx.guild}')
 
 @client.slash_command()
 async def pp_size(ctx):
@@ -47,7 +82,7 @@ async def pp_size(ctx):
 
     else:
         size = random.randint(1, 500)
-        print(size)
+        print(f'{ctx.author} got {size} in {ctx.guild} server')
         if size == 152:
             yes=random.randint(500, 501)
             if yes == 501:
@@ -61,7 +96,10 @@ async def pp_size(ctx):
         else:
             embed = discord.Embed(title = f"{ctx.author} your pp size is...", description = (f"{size} inches"), color = 0x5867f2)
     await ctx.response.send_message(embed = embed)
-    print(f'command pp_size run in {ctx.guild}')
+    f = open("ppsize.txt", "a")
+    f.write(f'{ctx.author} =>\t\t')
+    f.write(f'{size}\n')
+    f.close()
 
 @client.slash_command()
 @commands.has_any_role('Dev', 'Head Mod', 'Mod')
@@ -101,29 +139,34 @@ async def kick(ctx, member: discord.Member,* ,reason = None):
 @client.command()
 async def redacted(ctx):
     await ctx.author.send('https://cdn.discordapp.com/attachments/903454233037254666/906806501061046302/unknown.png')
+    print(f'command [REDACTED] run in {ctx.guild}')
 
 @client.command()
 async def aaron(ctx):
     author = ctx.author
     await author.send('you owe me ∞ money UwU')
     await author.send('https://cdn.discordapp.com/attachments/903454233037254666/906049968312311848/Screenshot_20210928-230318_Discord.png')
+    print(f'command aaron run in {ctx.guild}')
 
 @client.command()
 async def luke(ctx):
     author = ctx.author
     await author.send('UwU you t-touchy my tail')
     await author.send('https://cdn.discordapp.com/attachments/903454233037254666/904242228803829770/luke.png')
+    print(f'command luke run in {ctx.guild}')
 
 @client.command()
 async def sniper(ctx):
     author = ctx.author
     await author.send('https://cdn.discordapp.com/attachments/903454233037254666/904242035110846504/sniper.jpg')
+    print(f'command sniper run in {ctx.guild}')
 
 @client.command()
 async def sneaky(ctx):
     author = ctx.author
     await author.send('https://cdn.discordapp.com/attachments/903454233037254666/904241982870810635/sneaky1.png')
     await author.send('https://cdn.discordapp.com/attachments/903454233037254666/904241944014753792/sneaky2.png')
+    print(f'command sneaky run in {ctx.guild}')
 
 @client.command()
 async def december(ctx):
@@ -132,6 +175,7 @@ async def december(ctx):
     await author.send('https://cdn.discordapp.com/attachments/903454233037254666/903454373043109928/IWSvBzO7ZAAAAABJRU5ErkJggg.png')
     await author.send('https://cdn.discordapp.com/attachments/903454233037254666/903454391498076170/BzGf2butOoxyAAAAAElFTkSuQmCC.png')
     await author.send('https://cdn.discordapp.com/attachments/903454233037254666/903454410900930570/x8XIKFENCaRlwAAAABJRU5ErkJggg.png')
+    print(f'command dc run in {ctx.guild}')
 
 @client.slash_command()
 async def bug_report(ctx, title, *, description):
