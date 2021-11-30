@@ -63,10 +63,14 @@ To install the depenencies, run this command in a shell window
 ## Donations!
 To support us on our way, you can donate any amount of crypto to our addresses! we are really working hard to make the bot one of the bests in discord!
 
-| Crypto      | Adress      | receiver    |
-| ----------- | ----------- | ----------- |
-| Ethereum    | 0x4ecbb64c0ff5d3854002ff89e10a93cad4b25211       | Apraxed (Lead developer, Owner) |
-| Ethereum    | 0xB5001Fc6F55FA83cbeF56d18b9AfE2F228390E84       | Carnoval (Developer, co-owner)  |
-| Monero (XMR)| 45KjgQrqiQChdU2aG6arvdQFHsZnPsfdNiH9Bc9ceujm7ikoHHrGFdtbjpZp6DurroYp3fGfFVpnATEcyrLiByoSDdJqkar       | Apraxed (Lead developer, Owner) |
-| Monero (XMR)| 46MZRCVMvREMbTDYxWmP4j3fLBFHqeFHTjBqmaNq1KGQ46cWoFta6W21VGA7Th2KoTgAkdbMexeQFPLggCr9bJ9o6dNrrKU       | Carnoval (Developer, co-owner) |
+| Crypto            | Adress      | receiver    |
+| ------------------| ----------- | ----------- |
+| Ethereum          | 0xe7121109C1c2E5EE9A6D174bC7DD645Eb0013144      | Apraxed (Lead developer, Owner) |
+| Ethereum          | 0xB5001Fc6F55FA83cbeF56d18b9AfE2F228390E84       | Carnoval (Developer, Co-Owner)  |
+| Monero (XMR)      | 45KjgQrqiQChdU2aG6arvdQFHsZnPsfdNiH9Bc9ceujm7ikoHHrGFdtbjpZp6DurroYp3fGfFVpnATEcyrLiByoSDdJqkar       | Apraxed (Lead developer, Owner) |
+| Monero (XMR)      | 46MZRCVMvREMbTDYxWmP4j3fLBFHqeFHTjBqmaNq1KGQ46cWoFta6W21VGA7Th2KoTgAkdbMexeQFPLggCr9bJ9o6dNrrKU       | Carnoval (Developer, Co-Owner) |
+| Bitcoin (BTC)     | bc1qg78gegmld6clrl0a7lzj5spu6tw6s25ucftusc      | Apraxed (Lead Developer, Owner) |
+| Dogecoin (DOGE)   | DCNWZzBR9gzkk3ZX3G3p4gwNvvsoy79hCS            | Apraxed (Lead Developer, Owner) |
+| Litecoin (LTC)    | LeKu7o2NfU5UvZZdvz2MqBPVxPwVSv12sE            | Apraxed (Lead Developer, Owner) |
+| Bitcoin Cash (BCH)| qpv7cwzs3t0msc6thejlaawa6v8tqd5f3sculzhpaz | Apraxed (Lead Developer, Owner) |
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
