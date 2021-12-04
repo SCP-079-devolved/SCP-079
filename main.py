@@ -1,9 +1,10 @@
 import disnake, random
 from disnake.ext import commands
-from config.cfg import general, messages, ppsize
+from config.cfg import general, messages, ppsize, website
 from server import runserver
 
-#       Nightly build 0.1.3
+#       Nightly build 0.2.0
+
 
 runserver()
 discord = disnake
@@ -65,6 +66,7 @@ async def rps(ctx, a):
                 embed = discord.Embed(title = 'RPS results', description = f'{ctx.author.mention}: {a}\nMe: {b}')
                 embed.set_footer (text = f'Loss!')
                 await ctx.send (embed = embed)
+    #nice
             else:
                 await ctx.send ("That's not a choice")
         f = open("cmdlogs.txt", "a")
@@ -157,6 +159,82 @@ async def clear_error(ctx, error):
     if isinstance(error, commands.MissingPermissions):
         await ctx.send("You cant do that!")
 
+@client.command()
+@commands.has_any_role('Mod', 'Head Mod')
+async def mpi(ctx):
+  author = ctx.author
+  await author.send(f"Hello {ctx.author}! \n as a Mod, here's your username and password:\n `username: Bot admin` \n `password: @079`\n \n Also if you forgot the url: https://control-panel.carnoval.repl.co \n\n DON'T SHARE THIS INFORAMTION WITH ANYONE \n `auto deleting message in 15 seconds...`", delete_after=15)
+  await ctx.send("Message has been dmed to you, view it before it deletes itself...")
+  
+  f = open("user reports.txt", "a")
+  f.write(f'{ctx.author} ran Website info as a Mod.\n')
+  f.close()
+  
+@clear.error
+async def mpi_error(ctx, error):
+    if isinstance(error, commands.MissingRole):
+        await ctx.send("You cant do that!")
+        f = open("user reports.txt", "a")
+        f.write(f'{ctx.author} Tried to get website info by using Mod only secret command! Go get him.\n')
+        f.close()
+
+@client.slash_command()
+async def site(ctx, level):
+    if level == "dev":
+        if ctx.author.id == 740981195159896184 or 309326655954878464 or 624494076846145536:
+            author = ctx.author
+            await author.send(f"Hello {ctx.author}! \n as a Developer of the bot, here's your username and password:\n `username: Bot dev` \n `password: bot dev 00`\n\n Also if you forgot the url: https://control-panel.carnoval.repl.co \n\n DON'T SHARE THIS INFORAMTION WITH ANYONE \n `auto deleting message in 15 seconds...`", delete_after=15)
+            await ctx.response.send_message("Message has been dmed to you, view it before it deletes it self...")
+  
+            f = open("website info logs.txt", "a")
+            f.write(f'{ctx.author} ran Website info as a Dev.\n')
+            f.close()
+        else:
+            await ctx.author.send('ILLEGAL, expect a DM from a dev xd')
+            f = open("user reports.txt", "a")
+            f.write(f'{ctx.author} Tried to get website info by using Dev only secret command! Go get him.\n')
+            f.close()
+            pass
+    elif level == "mod":
+        modpass = website.mdpass
+        if ctx.author.id == 728454308462460999 or 536640573113892874 or 568984677713444864:
+            author = ctx.author
+            await author.send(f"Hello {ctx.author}! \n as a Mod, here's your password: {modpass}\n  if you forgot the url: https://control-panel.carnoval.repl.co \n\n DON'T SHARE THIS INFORAMTION WITH ANYONE \n `auto deleting message in 15 seconds...`", delete_after=15)
+            await ctx.response.send_message("Message has been dmed to you, view it before it deletes itself...")
+  
+            f = open("website info logs.txt", "a")
+            f.write(f'{ctx.author} ran Website info as a Mod.\n')
+            f.close()
+        else:
+            await ctx.author.send('ILLEGAL, expect a DM from a dev or mod xd')
+            f = open("user reports.txt", "a")
+            f.write(f'{ctx.author} Tried to get website info by using Mod only secret command! Go get him.\n')
+            f.close()
+            pass
+    elif level == "topguys":
+        if ctx.author.id == 441032877992574986 or 643867409802985503 or 601274881954414612:
+            author = ctx.author
+            await author.send('Damn, top guys, nice anyways the url is https://control-panel.carnoval.repl.co')
+
+
+@client.command()
+@commands.has_any_role('Dev', 'Lead dev')
+async def dpi(ctx):
+  author = ctx.author
+  await author.send(f"Hello {ctx.author}! \n as a Developer of the bot, here's your username and password:\n `username: Bot dev` \n `password: bot dev 00`\n\n Also if you forgot the url: https://control-panel.carnoval.repl.co \n\n DON'T SHARE THIS INFORAMTION WITH ANYONE \n `auto deleting message in 15 seconds...`", delete_after=15)
+  await ctx.send("Message has been dmed to you, view it before it deletes it self...")
+  
+  f = open("website info logs.txt", "a")
+  f.write(f'{ctx.author} ran Website info as a Dev.\n')
+  f.close()
+  
+@clear.error
+async def dpi_error(ctx, error):
+    if isinstance(error, commands.MissingRole):
+        await ctx.send("You cant do that!")
+        f = open("website info logs.txt", "a")
+        f.write(f'{ctx.author} Tried to get website info by using Dev only secret command! Go get him.\n')
+        f.close()
 
 @client.slash_command()
 @commands.has_any_role('Dev', 'Head Mod', 'Mod', 'pointsr3')
@@ -204,7 +282,6 @@ async def kick(ctx, member: discord.Member,* ,reason = None):
 @client.command()
 async def redacted(ctx):
     await ctx.author.send('https://cdn.discordapp.com/attachments/903454233037254666/906806501061046302/unknown.png')
-    print(f'command [REDACTED] run in {ctx.guild}')
     f = open("cmdlogs.txt", "a")
     f.write(f'{ctx.author}')
     f.write('\t[REDACTED]\n')
@@ -215,7 +292,6 @@ async def aaron(ctx):
     author = ctx.author
     await author.send('you owe me ∞ money UwU')
     await author.send('https://cdn.discordapp.com/attachments/903454233037254666/906049968312311848/Screenshot_20210928-230318_Discord.png')
-    print(f'command aaron run in {ctx.guild}')
     f = open("cmdlogs.txt", "a")
     f.write(f'{ctx.author}')
     f.write('\taaron\n')
@@ -226,7 +302,6 @@ async def luke(ctx):
     author = ctx.author
     await author.send('UwU you t-touchy my tail')
     await author.send('https://cdn.discordapp.com/attachments/903454233037254666/904242228803829770/luke.png')
-    print(f'command luke run in {ctx.guild}')
     f = open("cmdlogs.txt", "a")
     f.write(f'{ctx.author}')
     f.write('\tluwuke\n')
@@ -236,7 +311,6 @@ async def luke(ctx):
 async def sniper(ctx):
     author = ctx.author
     await author.send('https://cdn.discordapp.com/attachments/903454233037254666/904242035110846504/sniper.jpg')
-    print(f'command sniper run in {ctx.guild}')
     f = open("cmdlogs.txt", "a")
     f.write(f'{ctx.author}')
     f.write('\tsnipy wipy uwu\n')
@@ -247,7 +321,6 @@ async def sneaky(ctx):
     author = ctx.author
     await author.send('https://cdn.discordapp.com/attachments/903454233037254666/904241982870810635/sneaky1.png')
     await author.send('https://cdn.discordapp.com/attachments/903454233037254666/904241944014753792/sneaky2.png')
-    print(f'command sneaky run in {ctx.guild}')
     f = open("cmdlogs.txt", "a")
     f.write(f'{ctx.author}')
     f.write('\tWALL\n')
@@ -260,10 +333,37 @@ async def december(ctx):
     await author.send('https://cdn.discordapp.com/attachments/903454233037254666/903454373043109928/IWSvBzO7ZAAAAABJRU5ErkJggg.png')
     await author.send('https://cdn.discordapp.com/attachments/903454233037254666/903454391498076170/BzGf2butOoxyAAAAAElFTkSuQmCC.png')
     await author.send('https://cdn.discordapp.com/attachments/903454233037254666/903454410900930570/x8XIKFENCaRlwAAAABJRU5ErkJggg.png')
-    print(f'command dc run in {ctx.guild}')
     f = open("cmdlogs.txt", "a")
     f.write(f'{ctx.author}')
     f.write('\tdecember will agressively pursuade your mother\n')
+    f.close()
+
+@client.command()
+async def pointsr(ctx):
+    author = ctx.author
+    await author.send('https://i.imgur.com/Mpfov9C.png')
+    await author.send('https://i.imgur.com/mcow06M.png')
+    f = open("cmdlogs.txt", "a")
+    f.write(f'{ctx.author}')
+    f.write('\tPointsr is happy about that\n')
+    f.close()
+
+@client.command()
+async def kelso(ctx):
+    author = ctx.author
+    await author.send('https://cdn.discordapp.com/attachments/903454233037254666/915046052233613332/unknown.png')
+    f = open("cmdlogs.txt", "a")
+    f.write(f'{ctx.author}')
+    f.write('\tkelso funni joke mans\n')
+    f.close()
+
+@client.command()
+async def cobra(ctx):
+    author = ctx.author
+    await author.send('https://cdn.discordapp.com/attachments/903454233037254666/915047792404222012/unknown.png')
+    f = open("cmdlogs.txt", "a")
+    f.write(f'{ctx.author}')
+    f.write('\tcobra is sowwwy\n')
     f.close()
 
 @client.slash_command()
