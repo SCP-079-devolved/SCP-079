@@ -25,12 +25,6 @@ To install the depenencies, run this command in a shell window
 
 - Meme
 
-### Commands underway are:
-
-- Mute
-
-- Warn
-
 - Luke (creator of original bot's embarresing picture)
 
 - Sneaky (creator's friend embarresing picture)
@@ -38,6 +32,12 @@ To install the depenencies, run this command in a shell window
 - Sniper (another of the creator's friend embarresing picture)
 
 - December (same as above description)
+
+### Commands underway are:
+
+- Mute
+
+- Warn
 
 - Report
 
