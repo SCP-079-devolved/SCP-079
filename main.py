@@ -35,6 +35,26 @@ async def pp_width(ctx):
     f.close()
 
 @client.slash_command()
+@commands.has_permissions(manage_channels=True)
+async def lock(ctx, channel : discord.TextChannel=None):
+    channel = channel or ctx.channel
+    overwrite = channel.overwrites_for(ctx.guild.default_role)
+    overwrite.send_messages = False
+    await channel.set_permissions(ctx.guild.default_role, overwrite=overwrite)
+    await ctx.response.send_message('Channel locked.')    
+    
+#@client.command()
+#async def slowmode(ctx, time: int, *, multiplier = None):
+#    if not multiplier:
+#        await ctx.channel.edit(slowmode_delay=time)
+#    elif multiplier = m or M:
+#        time=multiply(time, 60)
+#        await ctx.channel.edit(slowmode_delay=time)
+#    await ctx.channel.edit(slowmode_delay=time)
+#    await ctx.send(f"Set the slowmode delay in this channel to {time} {multiplier}!")
+
+    
+@client.slash_command()
 async def rps(ctx, a):
         '''rock, paper, scissors'''
         a=a.lower()
@@ -102,27 +122,35 @@ async def ping(ctx):
 @client.slash_command()
 async def pp_size(ctx):
         '''Mesures ya dick and tells you the size'''
-        msmt = ppsize.unit
         channel = client.get_channel(899378836968439878)
-        size = random.randint(ppsize.mn, ppsize.mx)
+        size = random.randint(1, 500)
         print(f'{ctx.author} got {size} in {ctx.guild} server')
         if size == 152:
             yes=random.randint(ppsize.mx, ppsize.rare)
             if yes == ppsize.rare:
-                embed = discord.Embed(title = f"{ctx.author} your pp size is...", description = (f"{ppsize.rare} {msmt}, wait something ain't right here"), color = 0x5867f2)
-                print(ctx.author, "GOT", ppsize.rare, msmt)
-                await channel.send(f'ATTENTION @everyone, user <@{ctx.author.id}> got the RAREST dick size, {ppsize.rare}, {ppsize.rare} {msmt} is impossible but they still got it, congrats! ')
+                embed = discord.Embed(title = f"{ctx.author} your pp size is...", description = ("501 inches, wait something ain't right here"), color = 0x5867f2)
+                print(ctx.author, "GOT 501 inches!!")
+                await ctx.response.send_message(embed = embed)
+                await channel.send(f'ATTENTION @everyone, user <@{ctx.author.id}> got the RAREST dick size, 501 inches, congrats! ')
+                f = open("ppsize.scp079", "a")
+                f.write(f'{ctx.author} =>\t\t')
+                f.write('501!\n')
+                f.close()
             else:
-                embed = discord.Embed(title = f"{ctx.author} your pp size is...", description = (f"{ppsize.mx} inches"), color = 0x5867f2)
-                
-            
+                embed = discord.Embed(title = f"{ctx.author} your pp size is...", description = ("500 inches"), color = 0x5867f2)
+                await ctx.response.send_message(embed = embed)
+                f = open("ppsize.scp079", "a")
+                f.write(f'{ctx.author} =>\t\t')
+                f.write(f'500\n')
+                f.close()
         else:
-            embed = discord.Embed(title = f"{ctx.author} your pp size is...", description = (f"{size} {msmt}"), color = 0x5867f2)
-        await ctx.response.send_message(embed = embed)
-        f = open("ppsize.scp079", "a")
-        f.write(f'{ctx.author} =>\t\t')
-        f.write(f'{size}\n')
-        f.close()
+            embed = discord.Embed(title = f"{ctx.author} your pp size is...", description = (f"{size} inches"), color = 0x5867f2)
+            await ctx.response.send_message(embed = embed)
+            f = open("ppsize.scp079", "a")
+            f.write(f'{ctx.author} =>\t\t')
+            f.write(f'{size}\n')
+            f.close()
+
         f = open("cmdlogs.txt", "a")
         f.write(f'{ctx.author}')
         f.write('\tmesured their dick\n')
