@@ -1,10 +1,54 @@
+### ------------------ CONFIG ------------------ ###
+import os
+# import dotenv
+
+class config():
+    f=False
+    F=f
+    t=True
+    T=t
+
+class general():
+    MOTD = 'Now 100% More Slash Commands! | Febuary 2022'
+    token=os.getenv("Token")
+    bot_icon_emoji = "<:079:900247468845977610>"
+    # Is the ban appealable? T or F
+    ban_appealable=config.f # just change the f to t if it is configurable then go to the `if ban_appealable` if statement
+    default_currency_name = "sweptbux" # set your own currency name in banksystem class using this format: "{NAME}"
+    # Bot's prefix when not using slash commands
+    prefix="."
+    # only fill out of ban_appealable = T or t
+    if ban_appealable:
+        appeals_server="discord.gg/CODEHERE"
+    elif ban_appealable == False:
+        appeals_server="This is an unappealable ban"
+
+class messages():
+    #default reasons for the stuff listed below
+    ban_message = f'You have been banned for breaking the rules.'
+    kick_message = f'You have been kicked from the server.'
+
+class banksystem():
+    # name of the currency
+    name = general.default_currency_name
+    # Emoji embed code for the emoji
+    icon = "<:Sweptbux:900246927847866428>"
+
+class website():
+    mdpass = os.getenv("mod_pass")
+    dvpass = os.getenv("dev_pass")
+
+class ppsize():
+    mn = 1
+    mx = 500
+    rare = 501
+    unit = "inches"
+    logs = "ppsize.txt"
+
+### ------------------ BOT ----------------- ###
 import disnake, random
 from disnake.ext import commands
-from config.cfg import general, messages, ppsize, website
 from server import runserver
-
-#       Nightly build 0.2.0
-
 
 runserver()
 discord = disnake
@@ -16,9 +60,6 @@ client = scp079
 async def on_ready():
     print(client.user.name,"is online")
     await scp079.change_presence(status=discord.Status.idle, activity = discord.Game(name = general.MOTD))
-    f = open("cmdlogs.txt", "a")
-    f.write('Bot started\n')
-    f.close()
 
 @client.slash_command()
 async def pp_width(ctx):
@@ -29,31 +70,8 @@ async def pp_width(ctx):
         embed = discord.Embed(title = f"{ctx.author} your pp width is...", description = (f"{random.randint(1, 10)} inches"), color = 0x5867f2)
     await ctx.response.send_message(embed = embed)
     print(f'command pp_width run in {ctx.guild}')
-    f = open("cmdlogs.txt", "a")
-    f.write(f'{ctx.author}')
-    f.write('\tMesured width of their dick\n')
-    f.close()
 
-@client.slash_command()
-@commands.has_permissions(manage_channels=True)
-async def lock(ctx, channel : discord.TextChannel=None):
-    channel = channel or ctx.channel
-    overwrite = channel.overwrites_for(ctx.guild.default_role)
-    overwrite.send_messages = False
-    await channel.set_permissions(ctx.guild.default_role, overwrite=overwrite)
-    await ctx.response.send_message('Channel locked.')    
-    
-#@client.command()
-#async def slowmode(ctx, time: int, *, multiplier = None):
-#    if not multiplier:
-#        await ctx.channel.edit(slowmode_delay=time)
-#    elif multiplier = m or M:
-#        time=multiply(time, 60)
-#        await ctx.channel.edit(slowmode_delay=time)
-#    await ctx.channel.edit(slowmode_delay=time)
-#    await ctx.send(f"Set the slowmode delay in this channel to {time} {multiplier}!")
 
-    
 @client.slash_command()
 async def rps(ctx, a):
         '''rock, paper, scissors'''
@@ -86,25 +104,15 @@ async def rps(ctx, a):
                 embed = discord.Embed(title = 'RPS results', description = f'{ctx.author.mention}: {a}\nMe: {b}')
                 embed.set_footer (text = f'Loss!')
                 await ctx.send (embed = embed)
-    #nice
+
             else:
                 await ctx.send ("That's not a choice")
-        f = open("cmdlogs.txt", "a")
-        f.write(f'{ctx.author}')
-        f.write('\trock paper scissors SHOOT\n')
-        f.close()
-
 
 @client.command()
 async def comedy(ctx):
     '''Some comedy pic'''
     author = ctx.author
     await author.send("https://cdn.discordapp.com/attachments/903454233037254666/904242252434505748/comedy.png")
-    f = open("cmdlogs.txt", "a")
-    f.write(f'{ctx.author}')
-    f.write('\tgot comedy gold\n')
-    f.close()
-
 
 @client.slash_command()
 async def ping(ctx):
@@ -113,11 +121,6 @@ async def ping(ctx):
     e=discord.Embed(title="ping", description=(f"Pong\n\nPing={ping}ms."))
     await ctx.response.send_message(embed=e)
     print(f'command ping run in {ctx.guild}')
-    f = open("cmdlogs.txt", "a")
-    f.write(f'{ctx.author}')
-    f.write('\tGot their ping\n')
-    f.close()
-
 
 @client.slash_command()
 async def pp_size(ctx):
@@ -132,44 +135,14 @@ async def pp_size(ctx):
                 print(ctx.author, "GOT 501 inches!!")
                 await ctx.response.send_message(embed = embed)
                 await channel.send(f'ATTENTION @everyone, user <@{ctx.author.id}> got the RAREST dick size, 501 inches, congrats! ')
-                f = open("ppsize.scp079", "a")
-                f.write(f'{ctx.author} =>\t\t')
-                f.write('501!\n')
-                f.close()
+
             else:
                 embed = discord.Embed(title = f"{ctx.author} your pp size is...", description = ("500 inches"), color = 0x5867f2)
                 await ctx.response.send_message(embed = embed)
-                f = open("ppsize.scp079", "a")
-                f.write(f'{ctx.author} =>\t\t')
-                f.write(f'500\n')
-                f.close()
+
         else:
             embed = discord.Embed(title = f"{ctx.author} your pp size is...", description = (f"{size} inches"), color = 0x5867f2)
             await ctx.response.send_message(embed = embed)
-            f = open("ppsize.scp079", "a")
-            f.write(f'{ctx.author} =>\t\t')
-            f.write(f'{size}\n')
-            f.close()
-
-        f = open("cmdlogs.txt", "a")
-        f.write(f'{ctx.author}')
-        f.write('\tmesured their dick\n')
-        f.close()
-
-
-@client.slash_command()
-@commands.has_any_role('Lead dev')
-async def pp_reset(ctx):
-    '''Resets the pp_size command logs'''
-    f = open("ppsize.scp079", "w+")
-    f.truncate()
-    f.write('pp-size command logs:\n')
-    f.close()
-    await ctx.response.send_message('Logs Reset')
-    f = open("cmdlogs.txt", "a")
-    f.write(f'{ctx.author}')
-    f.write('\treset ppsize logs\n')
-    f.close()
 
 @client.command(pass_context=True)
 @commands.has_permissions(administrator=True)
@@ -177,92 +150,11 @@ async def clear(ctx, limit: int):
     await ctx.channel.purge(limit=limit)
     await ctx.send(f'last {limit} messages have been Cleared by{ctx.author.mention}')
     await ctx.message.delete()
-    f = open("cmdlogs.txt", "a")
-    f.write(f'{ctx.author}')
-    f.write('\tpurged xd\n')
-    f.close()
-        
+    
 @clear.error
 async def clear_error(ctx, error):
     if isinstance(error, commands.MissingPermissions):
         await ctx.send("You cant do that!")
-
-@client.command()
-@commands.has_any_role('Mod', 'Head Mod')
-async def mpi(ctx):
-  author = ctx.author
-  await author.send(f"Hello {ctx.author}! \n as a Mod, here's your username and password:\n `username: Bot admin` \n `password: @079`\n \n Also if you forgot the url: https://control-panel.carnoval.repl.co \n\n DON'T SHARE THIS INFORAMTION WITH ANYONE \n `auto deleting message in 15 seconds...`", delete_after=15)
-  await ctx.send("Message has been dmed to you, view it before it deletes itself...")
-  
-  f = open("user reports.txt", "a")
-  f.write(f'{ctx.author} ran Website info as a Mod.\n')
-  f.close()
-  
-@clear.error
-async def mpi_error(ctx, error):
-    if isinstance(error, commands.MissingRole):
-        await ctx.send("You cant do that!")
-        f = open("user reports.txt", "a")
-        f.write(f'{ctx.author} Tried to get website info by using Mod only secret command! Go get him.\n')
-        f.close()
-
-@client.slash_command()
-async def site(ctx, level):
-    if level == "dev":
-        if ctx.author.id == 740981195159896184 or 309326655954878464 or 624494076846145536:
-            author = ctx.author
-            await author.send(f"Hello {ctx.author}! \n as a Developer of the bot, here's your username and password:\n `username: Bot dev` \n `password: bot dev 00`\n\n Also if you forgot the url: https://control-panel.carnoval.repl.co \n\n DON'T SHARE THIS INFORAMTION WITH ANYONE \n `auto deleting message in 15 seconds...`", delete_after=15)
-            await ctx.response.send_message("Message has been dmed to you, view it before it deletes it self...")
-  
-            f = open("website info logs.txt", "a")
-            f.write(f'{ctx.author} ran Website info as a Dev.\n')
-            f.close()
-        else:
-            await ctx.author.send('ILLEGAL, expect a DM from a dev xd')
-            f = open("user reports.txt", "a")
-            f.write(f'{ctx.author} Tried to get website info by using Dev only secret command! Go get him.\n')
-            f.close()
-            pass
-    elif level == "mod":
-        modpass = website.mdpass
-        if ctx.author.id == 728454308462460999 or 536640573113892874 or 568984677713444864:
-            author = ctx.author
-            await author.send(f"Hello {ctx.author}! \n as a Mod, here's your password: {modpass}\n  if you forgot the url: https://control-panel.carnoval.repl.co \n\n DON'T SHARE THIS INFORAMTION WITH ANYONE \n `auto deleting message in 15 seconds...`", delete_after=15)
-            await ctx.response.send_message("Message has been dmed to you, view it before it deletes itself...")
-  
-            f = open("website info logs.txt", "a")
-            f.write(f'{ctx.author} ran Website info as a Mod.\n')
-            f.close()
-        else:
-            await ctx.author.send('ILLEGAL, expect a DM from a dev or mod xd')
-            f = open("user reports.txt", "a")
-            f.write(f'{ctx.author} Tried to get website info by using Mod only secret command! Go get him.\n')
-            f.close()
-            pass
-    elif level == "topguys":
-        if ctx.author.id == 441032877992574986 or 643867409802985503 or 601274881954414612:
-            author = ctx.author
-            await author.send('Damn, top guys, nice anyways the url is https://control-panel.carnoval.repl.co')
-
-
-@client.command()
-@commands.has_any_role('Dev', 'Lead dev')
-async def dpi(ctx):
-  author = ctx.author
-  await author.send(f"Hello {ctx.author}! \n as a Developer of the bot, here's your username and password:\n `username: Bot dev` \n `password: bot dev 00`\n\n Also if you forgot the url: https://control-panel.carnoval.repl.co \n\n DON'T SHARE THIS INFORAMTION WITH ANYONE \n `auto deleting message in 15 seconds...`", delete_after=15)
-  await ctx.send("Message has been dmed to you, view it before it deletes it self...")
-  
-  f = open("website info logs.txt", "a")
-  f.write(f'{ctx.author} ran Website info as a Dev.\n')
-  f.close()
-  
-@clear.error
-async def dpi_error(ctx, error):
-    if isinstance(error, commands.MissingRole):
-        await ctx.send("You cant do that!")
-        f = open("website info logs.txt", "a")
-        f.write(f'{ctx.author} Tried to get website info by using Dev only secret command! Go get him.\n')
-        f.close()
 
 @client.slash_command()
 @commands.has_any_role('Dev', 'Head Mod', 'Mod', 'pointsr3')
@@ -279,10 +171,6 @@ async def ban(ctx, member: discord.Member,* ,reason = None):
         await ctx.guild.ban(member, reason = reason)
         await ctx.channel.send(f'{member} has been banned for {reason} by <@{authorid}> ')
     print(f'ban command run in {ctx.guild}')
-    f = open("cmdlogs.txt", "a")
-    f.write(f'{ctx.author}')
-    f.write('\toooo they banned someone\n')
-    f.close()
 
 @client.slash_command()
 @commands.has_any_role('Dev', 'Head Mod', 'Mod')
@@ -302,58 +190,33 @@ async def kick(ctx, member: discord.Member,* ,reason = None):
         await ctx.response.send_message(f'Kicked {member} for you <@{authorid}>, they have recived another invite link but they have hopefully learned')
         await ctx.guild.kick(member, reason = reason)
     print(f'kick command run in {ctx.guild}')
-    f = open("cmdlogs.txt", "a")
-    f.write(f'{ctx.author}')
-    f.write('\tkicked someone\n')
-    f.close()
-
+    
 @client.command()
 async def redacted(ctx):
     await ctx.author.send('https://cdn.discordapp.com/attachments/903454233037254666/906806501061046302/unknown.png')
-    f = open("cmdlogs.txt", "a")
-    f.write(f'{ctx.author}')
-    f.write('\t[REDACTED]\n')
-    f.close()
 
 @client.command()
 async def aaron(ctx):
     author = ctx.author
     await author.send('you owe me ∞ money UwU')
     await author.send('https://cdn.discordapp.com/attachments/903454233037254666/906049968312311848/Screenshot_20210928-230318_Discord.png')
-    f = open("cmdlogs.txt", "a")
-    f.write(f'{ctx.author}')
-    f.write('\taaron\n')
-    f.close()
 
 @client.command()
 async def luke(ctx):
     author = ctx.author
     await author.send('UwU you t-touchy my tail')
     await author.send('https://cdn.discordapp.com/attachments/903454233037254666/904242228803829770/luke.png')
-    f = open("cmdlogs.txt", "a")
-    f.write(f'{ctx.author}')
-    f.write('\tluwuke\n')
-    f.close()
 
 @client.command()
 async def sniper(ctx):
     author = ctx.author
     await author.send('https://cdn.discordapp.com/attachments/903454233037254666/904242035110846504/sniper.jpg')
-    f = open("cmdlogs.txt", "a")
-    f.write(f'{ctx.author}')
-    f.write('\tsnipy wipy uwu\n')
-    f.close()
 
 @client.command()
 async def sneaky(ctx):
     author = ctx.author
     await author.send('https://cdn.discordapp.com/attachments/903454233037254666/904241982870810635/sneaky1.png')
     await author.send('https://cdn.discordapp.com/attachments/903454233037254666/904241944014753792/sneaky2.png')
-    f = open("cmdlogs.txt", "a")
-    f.write(f'{ctx.author}')
-    f.write('\tWALL\n')
-    f.close()
-
 @client.command()
 async def december(ctx):
     author = ctx.author
@@ -361,38 +224,22 @@ async def december(ctx):
     await author.send('https://cdn.discordapp.com/attachments/903454233037254666/903454373043109928/IWSvBzO7ZAAAAABJRU5ErkJggg.png')
     await author.send('https://cdn.discordapp.com/attachments/903454233037254666/903454391498076170/BzGf2butOoxyAAAAAElFTkSuQmCC.png')
     await author.send('https://cdn.discordapp.com/attachments/903454233037254666/903454410900930570/x8XIKFENCaRlwAAAABJRU5ErkJggg.png')
-    f = open("cmdlogs.txt", "a")
-    f.write(f'{ctx.author}')
-    f.write('\tdecember will agressively pursuade your mother\n')
-    f.close()
 
 @client.command()
 async def pointsr(ctx):
     author = ctx.author
     await author.send('https://i.imgur.com/Mpfov9C.png')
     await author.send('https://i.imgur.com/mcow06M.png')
-    f = open("cmdlogs.txt", "a")
-    f.write(f'{ctx.author}')
-    f.write('\tPointsr is happy about that\n')
-    f.close()
 
 @client.command()
 async def kelso(ctx):
     author = ctx.author
     await author.send('https://cdn.discordapp.com/attachments/903454233037254666/915046052233613332/unknown.png')
-    f = open("cmdlogs.txt", "a")
-    f.write(f'{ctx.author}')
-    f.write('\tkelso funni joke mans\n')
-    f.close()
 
 @client.command()
 async def cobra(ctx):
     author = ctx.author
     await author.send('https://cdn.discordapp.com/attachments/903454233037254666/915047792404222012/unknown.png')
-    f = open("cmdlogs.txt", "a")
-    f.write(f'{ctx.author}')
-    f.write('\tcobra is sowwwy\n')
-    f.close()
 
 @client.slash_command()
 async def bug_report(ctx):
