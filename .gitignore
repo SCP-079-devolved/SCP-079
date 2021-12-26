@@ -1,8 +1,0 @@
-*poetry.lock
-*pyproject.toml
-*.breakpoints
-*.cfg.cpython-38.pyc
-*__pycache__/
-*index.html
-*style.css
-*server.py
