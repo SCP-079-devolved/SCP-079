@@ -1,67 +1,60 @@
 # [SCP-079](https://discord.gg/xDJQR58vgf)
 
-SCP-079 is a fully customizable bot created by [Apraxed](https://github.com/Apraxed) and [Carnoval15](https://github.com/Carnoval15), the bot is based off of SCP-079 created by [TuneCode](https://discord.gg/gQxnsdqScw) with the owner's consent to use the name and icon, all material in this bot is copyrighted under a `BSD 3-Clause License` listed under the name "Apraxed" for the owner of this bot, the website is under a `CreativeCommons Attribution-NonCommercial-NoDerivatives 4.0 International` license.
+SCP-079 es un bot completamente customizable creado por [Apraxed](https://github.com/Apraxed) y [Carnoval15](https://github.com/Carnoval15), el bot se basa en el SCP-079 creado por [TuneCode](https://discord.gg/gQxnsdqScw), con el consentimiento del creador para poder usar el nombre y el icono, todo material de este bot esta bajo los derechos de copia de `BSD 3-Clause License` listado bajo el nombre "Apraxed" como el creador de este bot. La pagina web esta bajo la licensia `CreativeCommons Attribution-NonCommercial-NoDerivatives 4.0 International.`
 
-Make a file in the directory called `ppsize.txt` or # out lines 99-102
+Haz un archivo en el directorio llamado ppsize.txt o # fuera de las lineas 99-102.
 
-Now on to the bot itself
+Ahora sobre el bot mismo.
 
-## Code:
-The bot's code is custom code with command ideas based off of TuneCode's bot SCP-079 but released freely and under the licenses listed above,
+Codigo:
 
-To install the depenencies, run this command in a shell window
+El codigo del bot es un codigo customizable con las ideas de comandos basadas del bot SCP-079 de TuneCode pero liberado de manera gratuita y bajo las licencias listadas anteriormente.
+
+Para instalar las dependencias, corre este comando en una ventana de Shell.
 
 `$ pip install -r requirements.txt`
-     
-### Current commands are:
 
-- Ping (latency)
+Los comandos actuales son:
 
-- pp_size
+Ping (Latencia)
 
-- ban
+pp_tamaño (pp_tamano)
 
-- kick
+ban (Prohibit)
 
-- Meme
+kick (Patear)
 
-- Luke (creator of original bot's embarresing picture)
+meme
 
-- Sneaky (creator's friend embarresing picture)
+Comandos que estan en marcha: (You can also say it like "Comandos que estan en progreso:" to make it sound better)
 
-- Sniper (another of the creator's friend embarresing picture)
+Silenciar
 
-- December (same as above description)
+Advertir
 
-### Commands underway are:
+Reportar
 
-- Mute
+Características planeadas
 
-- Warn
+- Modcorreo
 
-- Report
+- Customizaciones a traves de una página web adjunta al bot
 
-### Fetures planned:
+- Automod
 
-- Modmail
+     - Configuracion (It's configuración but the accent marks in spanish are gonna make your life a living hell.)
 
-- customizable through an attached webpage to the bot
+     - Borrador de mensajes automaticos
 
-- automod
+     - Auto silenciar
 
-    - setup
+     - Anti Invasion
 
-    - auto message delete
+- Sistema de concurrencia
 
-    - auto mute
-    
-    - anti-raid
+Donaciones!
 
-- currency system
-
-
-## Donations!
-To support us on our way, you can donate any amount of crypto to our addresses! we are really working hard to make the bot one of the bests in discord!
+Para suportearnos en nuestro camino, puedes haver una donación de cualquier monto de crypto a nuestra direcciones! Nosotro estamos trabajando muy duro para poder hacer que este bot sea uno de los mejores en Discord!
 
 | Crypto            | Adress      | receiver    |
 | ------------------| ----------- | ----------- |
