@@ -58,12 +58,12 @@ Para suportearnos en nuestro camino, puedes haver una donación de cualquier mon
 
 | Crypto            | Adress      | receiver    |
 | ------------------| ----------- | ----------- |
-| Ethereum          | 0xe7121109C1c2E5EE9A6D174bC7DD645Eb0013144      | Apraxed (Lead developer, Owner) |
-| Ethereum          | 0xB5001Fc6F55FA83cbeF56d18b9AfE2F228390E84       | Carnoval (Developer, Co-Owner)  |
-| Monero (XMR)      | 45KjgQrqiQChdU2aG6arvdQFHsZnPsfdNiH9Bc9ceujm7ikoHHrGFdtbjpZp6DurroYp3fGfFVpnATEcyrLiByoSDdJqkar       | Apraxed (Lead developer, Owner) |
-| Monero (XMR)      | 46MZRCVMvREMbTDYxWmP4j3fLBFHqeFHTjBqmaNq1KGQ46cWoFta6W21VGA7Th2KoTgAkdbMexeQFPLggCr9bJ9o6dNrrKU       | Carnoval (Developer, Co-Owner) |
-| Bitcoin (BTC)     | bc1qg78gegmld6clrl0a7lzj5spu6tw6s25ucftusc      | Apraxed (Lead Developer, Owner) |
-| Dogecoin (DOGE)   | DCNWZzBR9gzkk3ZX3G3p4gwNvvsoy79hCS            | Apraxed (Lead Developer, Owner) |
-| Litecoin (LTC)    | LeKu7o2NfU5UvZZdvz2MqBPVxPwVSv12sE            | Apraxed (Lead Developer, Owner) |
-| Bitcoin Cash (BCH)| qpv7cwzs3t0msc6thejlaawa6v8tqd5f3sculzhpaz | Apraxed (Lead Developer, Owner) |
+| Ethereum          | 0xe7121109C1c2E5EE9A6D174bC7DD645Eb0013144      | Apraxed (Desarrollador Principal, Creador/Creator) |
+| Ethereum          | 0xB5001Fc6F55FA83cbeF56d18b9AfE2F228390E84       | Carnoval (Desarrollador, CoPropietario)  |
+| Monero (XMR)      | 45KjgQrqiQChdU2aG6arvdQFHsZnPsfdNiH9Bc9ceujm7ikoHHrGFdtbjpZp6DurroYp3fGfFVpnATEcyrLiByoSDdJqkar       | Apraxed (Desarrollador Principal, Creador/Creator |
+| Monero (XMR)      | 46MZRCVMvREMbTDYxWmP4j3fLBFHqeFHTjBqmaNq1KGQ46cWoFta6W21VGA7Th2KoTgAkdbMexeQFPLggCr9bJ9o6dNrrKU       | Carnoval (Desarrollador, CoPropietario) |
+| Bitcoin (BTC)     | bc1qg78gegmld6clrl0a7lzj5spu6tw6s25ucftusc      | Apraxed (Desarrollador Principal,  Creador/Creator) |
+| Dogecoin (DOGE)   | DCNWZzBR9gzkk3ZX3G3p4gwNvvsoy79hCS            | Apraxed (Desarrollador Principal,  Creador/Creator |
+| Litecoin (LTC)    | LeKu7o2NfU5UvZZdvz2MqBPVxPwVSv12sE            | Apraxed (Desarrollador Principal,  Creador/Creator |
+| Bitcoin Cash (BCH)| qpv7cwzs3t0msc6thejlaawa6v8tqd5f3sculzhpaz | Apraxed (Desarrollador Principal,  Creador/Creator) |
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
