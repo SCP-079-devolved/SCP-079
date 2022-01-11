@@ -4,7 +4,8 @@ from disname.enums import ButtonStyle
 from disnake.ext import commands
 from config.cfg import general, messages, ppsize, website
 import server
-#       Nightly build 0.2.1
+
+#       Nightly build 0.2.3
 
 # starting server
 server.start_server()
