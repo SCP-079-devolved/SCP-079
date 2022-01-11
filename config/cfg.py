@@ -8,19 +8,20 @@ class config():
     T=t
 
 class general():
-    MOTD = 'Now 100% More Slash Commands! | Febuary 2022'
-    token=os.getenv("Token")
-    bot_icon_emoji = "<:079:900247468845977610>"
-    # Is the ban appealable? T or F
-    ban_appealable=config.f # just change the f to t if it is configurable then go to the `if ban_appealable` if statement
-    default_currency_name = "sweptbux" # set your own currency name in banksystem class using this format: "{NAME}"
-    # Bot's prefix when not using slash commands
-    prefix="."
-    # only fill out of ban_appealable = T or t
-    if ban_appealable:
-        appeals_server="discord.gg/CODEHERE"
-    elif ban_appealable == False:
-        appeals_server="This is an unappealable ban"
+  botname = "SCP-079"
+  MOTD = 'apraxed rage at errors'
+  token=os.getenv("Token")
+  bot_icon_emoji = "<:079:900247468845977610>"
+  # Is the ban appealable? T or F
+  ban_appealable=config.f # just change the f to t if it is appealable then go to the `if ban_appealable` if statement
+  default_currency_name = "sweptbux" # set your own currency name in banksystem class using this format: "{NAME}"
+  # Bot's prefix when not using slash commands
+  prefix="."
+  # only fill out of ban_appealable = T or t
+  if ban_appealable:
+      appeals_server="discord.gg/CODEHERE"
+  elif ban_appealable == False:
+      appeals_server="This is an unappealable ban"
 
 class messages():
     #default reasons for the stuff listed below
@@ -43,4 +44,4 @@ class ppsize():
     rare = 501
     unit = "inches"
     logs = "ppsize.txt"
-# LORE TIME: We had to use different classes for this to make importing easier and so it's easier to sort through stuff
+    
