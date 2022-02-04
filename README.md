@@ -13,34 +13,6 @@ To install the depenencies, run this command in a shell window
 
 `$ pip install -r requirements.txt`
      
-### Current commands are:
-
-- Ping (latency)
-
-- pp_size
-
-- ban
-
-- kick
-
-- Meme
-
-- Luke (creator of original bot's embarresing picture)
-
-- Sneaky (creator's friend embarresing picture)
-
-- Sniper (another of the creator's friend embarresing picture)
-
-- December (same as above description)
-
-### Commands underway are:
-
-- Mute
-
-- Warn
-
-- Report
-
 ### Fetures planned:
 
 - Modmail
@@ -58,7 +30,6 @@ To install the depenencies, run this command in a shell window
     - anti-raid
 
 - currency system
-
 
 ## Donations!
 To support us on our way, you can donate any amount of crypto to our addresses! we are really working hard to make the bot one of the bests in discord!
